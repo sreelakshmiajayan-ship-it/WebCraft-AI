@@ -1,8 +1,7 @@
 import { createContext, useContext, useState, useCallback } from "react";
+import { apiUrl } from "../config/api";
 
 const ProjectContext = createContext(undefined);
-
-const API_URL = "http://localhost:5000/api/generate";
 
 export function ProjectProvider({ children }) {
   const [prompt, setPrompt] = useState("");
@@ -28,7 +27,7 @@ export function ProjectProvider({ children }) {
     setProvider("");
 
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(apiUrl("/api/generate"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: finalPrompt }),

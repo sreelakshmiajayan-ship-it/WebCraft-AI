@@ -6,6 +6,14 @@ node_modules/
 .env.local
 .env.*.local
 
+# Frontend (Vite) — keep .env.example, ignore real env files
+client/.env
+client/.env.local
+client/.env.*.local
+# Server — same rules
+server/.env
+server/.env.local
+
 # ── Build Output ────────────────────────────────────────────────
 dist/
 build/

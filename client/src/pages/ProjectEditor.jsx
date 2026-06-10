@@ -5,6 +5,7 @@ import {
   Save, Download, Loader2, Sparkles, Code2, Eye,
   CheckCircle2, AlertCircle
 } from "lucide-react";
+import { apiUrl } from "../config/api";
 
 const DEVICE_WIDTHS = { desktop: "100%", tablet: "768px", mobile: "390px" };
 
@@ -79,7 +80,7 @@ export default function ProjectEditor() {
   const fetchProject = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:5000/api/projects/${id}`, {
+      const res = await fetch(apiUrl(`/api/projects/${id}`), {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -95,7 +96,7 @@ export default function ProjectEditor() {
     setSaving(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:5000/api/projects/${id}`, {
+      const res = await fetch(apiUrl(`/api/projects/${id}`), {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ html: project.html, css: project.css, js: project.js })
@@ -113,7 +114,7 @@ export default function ProjectEditor() {
     try {
       const token = localStorage.getItem("token");
       const existingCode = JSON.stringify({ html: project.html, css: project.css, js: project.js });
-      const res = await fetch("http://localhost:5000/api/projects/generate", {
+      const res = await fetch(apiUrl("/api/projects/generate"), {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ prompt: editPrompt, existingCode })
@@ -133,7 +134,7 @@ export default function ProjectEditor() {
   const handleDownloadZip = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/projects/export", {
+      const res = await fetch(apiUrl("/api/projects/export"), {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ html: project.html, css: project.css, js: project.js })

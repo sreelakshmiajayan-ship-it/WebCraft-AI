@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../config/api";
 import {
   Sparkles, ArrowLeft, ArrowRight,
   Layers, ShoppingCart, User, BookOpen, Briefcase, LayoutTemplate,
@@ -159,7 +160,7 @@ export default function Describe() {
       const prompt = `Create a ${websiteType} named "${projectName}". ${description}`;
 
       // Generate
-      const genRes = await fetch("http://localhost:5000/api/projects/generate", {
+      const genRes = await fetch(apiUrl("/api/projects/generate"), {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ prompt }),
@@ -169,7 +170,7 @@ export default function Describe() {
 
       // Save
       const { html, css, js } = genData.data;
-      const saveRes = await fetch("http://localhost:5000/api/projects", {
+      const saveRes = await fetch(apiUrl("/api/projects"), {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ projectName, description, websiteType, html, css, js }),

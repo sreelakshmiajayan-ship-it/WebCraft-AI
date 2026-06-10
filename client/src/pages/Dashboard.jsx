@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Folder, Layout, Calendar, Trash2, Search, ArrowUpDown, Sparkles, LogOut, ExternalLink, Plus, Clock } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../config/api";
 
 const TYPE_COLORS = {
   "SaaS": "#8B5CF6",
@@ -104,7 +105,7 @@ export default function Dashboard() {
   const fetchProjects = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/projects", {
+      const res = await fetch(apiUrl("/api/projects"), {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -123,7 +124,7 @@ export default function Dashboard() {
     if (!window.confirm("Delete this project? This cannot be undone.")) return;
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:5000/api/projects/${id}`, {
+      const res = await fetch(apiUrl(`/api/projects/${id}`), {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` }
       });

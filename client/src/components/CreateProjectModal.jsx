@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X, Loader2, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../config/api";
 
 export default function CreateProjectModal({ isOpen, onClose }) {
   const [projectName, setProjectName] = useState("");
@@ -26,7 +27,7 @@ export default function CreateProjectModal({ isOpen, onClose }) {
       const token = localStorage.getItem("token");
       
       // 1. Generate the site
-      const genRes = await fetch("http://localhost:5000/api/projects/generate", {
+      const genRes = await fetch(apiUrl("/api/projects/generate"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +45,7 @@ export default function CreateProjectModal({ isOpen, onClose }) {
 
       // 2. Save the project
       const { html, css, js } = genData.data;
-      const saveRes = await fetch("http://localhost:5000/api/projects", {
+      const saveRes = await fetch(apiUrl("/api/projects"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
