@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  /* Modern SaaS Dark Palette */
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --bg-tertiary: #1e293b;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(139, 92, 246, 0.3);
+  
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-glow: rgba(139, 92, 246, 0.4);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --gradient-start: #8b5cf6;
+  --gradient-end: #6366f1;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight text-white;
+  }
+}
+
+@layer components {
+  /* Reusable Button Variants */
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white 
+           bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)]
+           shadow-[0_0_20px_var(--accent-glow)] hover:scale-[1.02] active:scale-[0.98] 
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold
+           bg-white/5 border border-[var(--border)] text-[var(--text-secondary)]
+           hover:bg-white/10 hover:text-white transition-all duration-200;
+  }
+
+  .btn-icon {
+    @apply p-2.5 rounded-xl bg-white/5 border border-[var(--border)] text-[var(--text-secondary)]
+           hover:text-white hover:border-[var(--border-hover)] transition-all;
+  }
+
+  /* Improved Input Fields */
+  .input-field {
+    @apply block w-full px-4 py-3 bg-[var(--bg-secondary)] border border-[var(--border)] 
+           rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)]
+           focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]/30
+           transition-all duration-200;
+  }
+
+  /* Card Components */
+  .card-base {
+    @apply bg-[var(--bg-secondary)] border border-[var(--border)] rounded-2xl overflow-hidden
+           hover:border-[var(--border-hover)] transition-all duration-300;
+  }
+
+  /* Typography Helpers */
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400;
+  }
+
+  /* Loading States & Skeletons */
+  .skeleton {
+    @apply animate-pulse bg-white/5 rounded;
+  }
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[var(--bg-primary)];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+/* Toast & Modal Base */
+.glass-panel {
+  @apply bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
