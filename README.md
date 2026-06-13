@@ -1,4 +1,4 @@
-# 🚀 WebCraft AI
+#  WebCraft AI
 
 WebCraft AI is an AI-powered website builder that transforms natural language prompts into fully responsive, modern websites. Simply describe the website you want, and WebCraft AI generates the website code and provides a live preview instantly.
 
@@ -6,39 +6,39 @@ Built with React, Vite, Node.js, Express, MongoDB, and Google's Gemini AI, the p
 
 ---
 
-## 🌟 Features
+##  Features
 
-### 🤖 AI Website Generation
+###  AI Website Generation
 - Generate complete website layouts from simple text prompts.
 - Powered by Google's Gemini AI model.
 - Creates responsive and modern website designs.
 
-### 🎨 Modern User Interface
+###  Modern User Interface
 - Clean and professional UI/UX.
 - Responsive design for desktop, tablet, and mobile devices.
 - Smooth animations and transitions.
 
-### 👀 Live Website Preview
+###  Live Website Preview
 - Instant rendering of generated websites.
 - Secure sandboxed preview environment using iframe.
 - Switch seamlessly between Preview and Code views.
 
-### 💾 Project Management
+###  Project Management
 - Save generated projects to MongoDB.
 - Access and manage previously generated websites.
 - Maintain website generation history.
 
-### 🔐 Authentication System
+###  Authentication System
 - User signup and login functionality.
 - Protected routes and secure user access.
 - Personalized project storage.
 
-### 📋 Code Utilities
+###  Code Utilities
 - View generated source code.
 - One-click copy-to-clipboard functionality.
 - Easy code export and modification.
 
-### ⚡ High Performance
+###  High Performance
 - Fast frontend powered by Vite.
 - Efficient backend API architecture.
 - Optimized user experience.
@@ -68,7 +68,7 @@ Built with React, Vite, Node.js, Express, MongoDB, and Google's Gemini AI, the p
 
 ---
 
-## 🏗️ Project Architecture
+##  Project Architecture
 
 ```text
 WebCraft-AI/
@@ -102,15 +102,6 @@ WebCraft-AI/
 
 ---
 
-## 📋 Prerequisites
-
-Before running the project, ensure you have:
-
-- Node.js (v18 or later)
-- MongoDB (Local or MongoDB Atlas)
-- Google Gemini API Key
-
----
 
 ## ⚙️ Environment Variables
 
@@ -130,7 +121,7 @@ GEMINI_API_KEY=your_gemini_api_key
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### 1. Clone the Repository
 
@@ -188,7 +179,7 @@ http://localhost:5173
 
 ---
 
-## 🔄 Application Workflow
+##  Application Workflow
 
 1. User enters a website description.
 2. Prompt is sent to the backend API.
@@ -226,7 +217,7 @@ Add screenshots of:
 
 ---
 
-## 🔐 Security Features
+##  Security Features
 
 - JWT-based Authentication
 - Protected Routes
@@ -236,7 +227,7 @@ Add screenshots of:
 
 ---
 
-## 🎯 Future Enhancements
+##  Future Enhancements
 
 - Multi-page website generation
 - Export as ZIP project
@@ -249,7 +240,7 @@ Add screenshots of:
 
 ---
 
-## 💡 Use Cases
+##  Use Cases
 
 - Students building project websites
 - Freelancers creating prototypes
@@ -259,32 +250,6 @@ Add screenshots of:
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository
-2. Create a new branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Commit your changes
-
-```bash
-git commit -m "Add new feature"
-```
-
-4. Push to your branch
-
-```bash
-git push origin feature-name
-```
-
-5. Open a Pull Request
-
----
 
 ## 📄 License
 
